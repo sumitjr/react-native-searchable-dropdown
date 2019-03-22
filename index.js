@@ -31,6 +31,7 @@ export default class SearchableDropDown extends Component {
       return (
         <ListView
           style={{ ...this.props.itemsContainerStyle }}
+          nestedScrollEnabled={true}
           keyboardShouldPersistTaps="always"
           dataSource={ds.cloneWithRows(this.state.listItems)}
           renderRow={this.renderItems}
@@ -44,6 +45,7 @@ export default class SearchableDropDown extends Component {
       return (
         <FlatList
           style={{ ...this.props.itemsContainerStyle }}
+          nestedScrollEnabled={true}
           keyboardShouldPersistTaps="always"
           data={this.state.listItems}
           keyExtractor={(item, index) => index.toString()}
@@ -115,10 +117,7 @@ export default class SearchableDropDown extends Component {
 
   render = () => {
     return (
-      <View
-        keyboardShouldPersist="always"
-        style={{ ...this.props.containerStyle }}
-      >
+      <View style={{ ...this.props.containerStyle }}>
         <TextInput
           ref={e => (this.input = e)}
           underlineColorAndroid={this.props.underlineColorAndroid}
