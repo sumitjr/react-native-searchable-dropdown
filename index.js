@@ -5,6 +5,7 @@ import {
   FlatList,
   TextInput,
   View,
+  ToastAndroid,
   TouchableOpacity,
   Keyboard
 } from 'react-native';
@@ -77,6 +78,9 @@ export default class SearchableDropDown extends Component {
       id: -1,
       name: searchedText
     };
+    if (ac.length < 1) {
+      ToastAndroid.showWithGravityAndOffset('no data found', ToastAndroid.SHORT, ToastAndroid.BOTTOM, 0, 30);
+    }
     this.setState({ listItems: ac, item: item });
     const onTextChange = this.props.onTextChange;
 
